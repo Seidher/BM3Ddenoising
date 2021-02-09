@@ -68,7 +68,7 @@ class BM3D:
     def grouping_from_basic_estimate(self, i, j):
         # TODO
         # use self.img_basic_estimate
-        # don't forget to put the groups (ii, jj) in self.S_xR_wie[i, j]
+        # don't forget to put the groups (ii, jj) in self.S_xR_ht[i, j]
         pass
 
     def transformation_3d(self, group):
