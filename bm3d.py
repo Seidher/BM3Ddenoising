@@ -22,8 +22,8 @@ class BM3D:
 
         self.S_xR_ht = np.empty((self.N, self.N))
         self.S_xR_wie = np.empty((self.N, self.N))
-        self.th_itf_3d = np.zeros((self.N, self.N1_th, self.N1_th))
-        self.wie_itf_3d = np.zeros((self.N, self.N1_wie, self.N1_wie))
+        self.th_itf_3d = np.zeros((self.N, self.N, self.N1_th, self.N1_th))
+        self.wie_itf_3d = np.zeros((self.N, self.N, self.N1_wie, self.N1_wie))
         self.wiener_energies = np.zeros((self.N, self.N))
 
     def denoise(self):
@@ -31,7 +31,7 @@ class BM3D:
             Denoise self.img according to the algorithm described in the paper
         :return: 2d np array, same size as the input image
         """
-        for i, j in product(range(self.N), 2):
+        for i, j in product(range(self.N), repeat=2):
             group_x_R_th = self.grouping_from_noisy(i, j)
             tf_3d = self.transformation_3d(group_x_R_th)
 
@@ -42,7 +42,7 @@ class BM3D:
 
         self.compute_y_basic()
 
-        for i, j in product(range(self.N), 2):
+        for i, j in product(range(self.N), repeat=2):
             group_xR_noisy = self.grouping_from_noisy(i, j)
             group_xR_basic = self.grouping_from_basic_estimate(i, j)
 
@@ -93,7 +93,7 @@ class BM3D:
         # TODO
         pass
 
-    def weight_wie(self):
+    def weight_wie(self, i, j):
         # Formula (11)
         # TODO
         pass
