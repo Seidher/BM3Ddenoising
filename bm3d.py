@@ -21,6 +21,7 @@ class BM3D:
         self.img_final_estimate = np.zeros((self.N, self.N))
 
         self.S_xR_ht = np.empty((self.N, self.N))
+        self.S_xR_wie = np.empty((self.N, self.N))
         self.th_itf_3d = np.zeros((self.N, self.N1_th, self.N1_th))
         self.wie_itf_3d = np.zeros((self.N, self.N1_wie, self.N1_wie))
         self.wiener_energies = np.zeros((self.N, self.N))
